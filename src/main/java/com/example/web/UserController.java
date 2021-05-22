@@ -11,6 +11,7 @@ public class UserController {
     @GetMapping("/user")
     public String user(@AuthenticationPrincipal OAuth2User principal, Model model) {
 //        return Collections.singletonMap("user", principal.getAttribute("name"));
+        model.addAttribute("class", principal.getClass().getSimpleName());
         model.addAttribute("user", principal);
         return "user";
     }
